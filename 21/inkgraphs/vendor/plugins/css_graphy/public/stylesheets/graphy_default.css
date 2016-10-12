@@ -1,0 +1,108 @@
+/**
+ * Stylesheet for css_graphy
+ * Theme: default
+ */
+
+
+/** {{ table.css_graphy_horizontal */
+table.css_graphy_horizontal {
+  background-color: #fff;
+  color: #222;
+  border-collapse: separate;
+  border-spacing: 1px 3px;
+  width: auto;
+}
+
+table.css_graphy_horizontal thead tr th {
+  text-align: center;
+  border: none;
+  border-right: 1px dotted #999;
+  font-weight: normal;
+  background-color: transparent;
+}
+
+table.css_graphy_horizontal thead tr th span.min {
+  display: block;
+  float: left;
+  font-size: 80%;
+  font-weight: normal;
+}
+
+table.css_graphy_horizontal thead tr th span.max {
+  display: block;
+  float: right;
+  font-size: 80%;
+  font-weight: normal;
+}
+
+table.css_graphy_horizontal tbody td.graphy {
+  border: 1px solid #ccc;
+  padding: 0;
+  margin-bottom: 3px;
+}
+
+table.css_graphy_horizontal tbody td.graphy span.bar {
+  display: block;
+  background-color: #ccc;
+  float: left;
+  height: 2em;
+}
+
+table.css_graphy_horizontal tbody td.graphy span.bar span.value {
+  display: block;
+  position: absolute;
+  font-size: 80%;
+  margin-top: -1.5em;
+  margin-left: 5px;
+}
+/** table.css_graphy_horizontal }} */
+
+
+
+/** {{ table.css_graphy_vertical */
+table.css_graphy_vertical {
+  background-color: #fff;
+  color: #222;
+  border-collapse: separate;
+  border-spacing: 5px 0;
+  width: auto;
+}
+table.css_graphy_vertical tfoot th {
+  background-color: transparent;
+  text-align: center;
+  font-size: 80%;
+}
+table.css_graphy_vertical tbody td.graphy {
+  border: 1px solid #ccc;
+  padding: 0;
+  vertical-align: bottom;
+}
+table.css_graphy_vertical tbody td.graphy span.bar {
+  display: block;
+  background-color: #ccc;
+  height: 2em;
+}
+table.css_graphy_vertical tbody td.graphy span.bar span.value {
+  display: block;
+  font-size: 80%;
+  text-align: center;
+  margin-top: -3.5em;
+}
+table.css_graphy_vertical tbody th.indicator {
+  border-top: 1px dotted #999;
+  border-bottom: 1px dotted #999;
+  font-weight: normal;
+  text-align: center;
+}
+table.css_graphy_vertical tbody th.indicator span {
+  display: block;
+  position: absolute;
+  font-size: 80%;
+}
+table.css_graphy_vertical thead th {
+  font-weight: normal;
+  text-align: center;
+  font-size: 100%;
+  border: none;
+}
+/** table.css_graphy_vertical }} */

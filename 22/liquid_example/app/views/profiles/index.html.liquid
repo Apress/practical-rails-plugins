@@ -1,0 +1,14 @@
+<h1>Bands on Exabandsite</h1>
+<style>
+  li { padding :1em; }
+  li.odd { background-color:white }
+  li.odd { background-color: #eee6ff; }
+</style>
+<ol>
+
+{%for user in users%}
+  <li class="{% cycle 'even', 'odd' %}" >{{user.username}} -
+      <a href="{{user.url}}">{{user.url}}</a></li>
+{%endfor%}
+</ol>
+

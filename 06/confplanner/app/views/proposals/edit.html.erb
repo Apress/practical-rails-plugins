@@ -1,0 +1,22 @@
+<h1>Proposal: <%= @conference_talk.name %></h1>
+<%= error_messages_for(:conference_talk) %>
+<% form_for(:conference_talk, :url => proposal_path(@conference_talk), 
+        :html => {:method => :put}) do |form| -%>
+  <p>Speaker Name:<br/> <%= form.text_field(:speaker_name) %></p>
+  <p>Speaker Email:<br/> <%= form.text_field(:speaker_email) %></p>
+  <p>Talk Name:<br/> <%= form.text_field(:name) %></p>
+  <p>Talk Abstract:<br/> <%= form.text_area(:abstract, :rows => 8) %></p>
+  <p>Speaker Bio:<br/> <%= form.text_area(:speaker_bio, :rows => 5) %></p>
+  <p>Notes:<br/> <%= form.text_area(:notes, :rows => 3) %></p>
+  <p>Status: <%= @conference_talk.state.upcase %></p>
+  <hr/>
+  <h2>Scheduling</h2>
+  <p>Room: <br/><%= form.text_field(:room) %></p>
+  <p>Scheduled At:<br/> <%= form.datetime_select(:scheduled_at) %></p>
+  <p>Change Status: <%= select_tag(:state, options_for_select(
+      @conference_talk.next_events_for_current_state.map { |event| [event.to_s.humanize, event]
+        }.insert(0, ['No change', 0]), 'No change')) %></p>
+  <%= submit_tag('Update') %>
+<% end -%>
+
+<%= link_to('Return to Index', proposals_path) %>

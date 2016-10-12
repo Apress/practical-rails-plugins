@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[margin=0.3in,papersize={3.25in,9.5in},landscape]{geometry}
+           % Sets the margins and paper size to
+           % fit an envelope:
+\usepackage{times} % Use the font Times.
+\pagestyle{empty}  % No headers or footers.
+\begin{document}   % Start our document.
+\large             % Set our font.
+<%@customers.each do |c|%>
+\parbox{4.0in}{ %    A parbox is a box of text, or, as the name implies,
+%                    of paragraphs. This parbox will contain the return
+%                    address.
+\textbf{%            Put our address in boldface...
+\raggedright{%       and align it to the left. The name might be a bit confusing;
+%                    "ragged right" is typically called "left alignment" by word
+%                    processors.
+J.X. Heating and Cooling Company \\
+89 Bog Rd \\
+Arctainville, New Glockenshire
+} } }
+\vspace{0.5in}%      Put some extra vertical space between this box and the last,
+\hspace{3.8in}%      and move this box over a few inches.
+\parbox{4.0in}{
+\raggedright{<%=l c.name%> \\
+<%=l c.street_address%> \\
+<%=l c.city%>, <%=l c.state%> <%=c.zip%>
+} }
+\newpage%            Start a new page for our next envelope.
+<%end%>
+\end{document}
+

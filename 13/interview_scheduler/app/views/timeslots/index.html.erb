@@ -1,0 +1,56 @@
+<style>
+.scheduled_interview { background-color: #ffffde; }
+  tr td, tr th { padding: 0.5em; }
+</style>
+<h1>Available Interview Timeslots</h1>
+<%= link_to 'Logout', { :controller=>:session }, { :method=>:delete} %>
+<% if current_user.has_role?('interviewer') %>
+  <%= link_to 'New timeslot', new_timeslot_path %>
+<% end %>
+<table cellspacing="0" cellpadding="0">
+  <% last_day = nil; last_position = nil %>
+  <% @timeslots.each do |timeslot| %>
+    <% scheduled = current_user.interviewee_timeslots.include?(timeslot) %>
+    <tr<%= ' class="scheduled_interview"' if scheduled %>>
+      <% if last_day != timeslot.interview_at.strftime("%D") %>
+          <% last_day = timeslot.interview_at.strftime("%D") %>
+          <th><%= last_day %></th>
+      <% else %>
+        <td></td>
+      <% end %>
+      <% if last_position != timeslot.position %>
+        <% last_position = timeslot.position %>
+        <th><%= last_position %></th>
+      <% else %>
+        <td></td>
+      <%end%>
+      <td></td>
+      <th><%=timeslot.interview_at.strftime('%I:%M%P')%></th>
+      <% if current_user.has_role?('interviewer')%>
+        <td>
+           <%= timeslot.interviewer.name if timeslot.interviewer %>
+           <%= timeslot.interviewee.name if timeslot.interviewee %>
+        </td>
+        <td><%= link_to 'Edit', edit_timeslot_path(timeslot) %></td>
+        <td><%= link_to 'Delete',
+                         timeslot,
+                         :confirm => 'Are you sure?',
+                         :method => :delete %></td>
+      <% end %>
+      <% if current_user.has_role?('interviewee') %>
+         <% if current_user.interviewee_timeslots.length==0 %>
+           <td><%= link_to 'Choose This Time',
+                            schedule_timeslot_path(timeslot),
+                            :method=> :post %></td>
+         <% end %>
+         <% if scheduled %>
+           <td>You're scheduled for an interview at this time;
+               please show up promptly at our location at
+               33 New Wikitia Avenue, New Wikitia.
+               Black tie optional.</td>
+         <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+

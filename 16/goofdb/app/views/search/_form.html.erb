@@ -1,0 +1,5 @@
+<h2>Search for Goofs:</h2>
+<% form_tag({:action => 'show'}, :method => :get) do -%>
+  <div><%= text_field_tag(:query, @search) %>
+    <%= submit_tag('Search!') %></div>
+<% end -%>

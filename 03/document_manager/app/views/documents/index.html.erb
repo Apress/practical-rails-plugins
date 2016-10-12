@@ -1,0 +1,48 @@
+<%=javascript_include_tag :defaults%>
+<h1>Listing documents</h1>
+<style>
+  #document_list, #document_preview {
+    width:49%; float:left;
+  }
+  #document_preview {
+    margin-left:1%;
+  }
+  #navigation {
+    float:left;
+    clear:left;
+  }
+</style>
+
+<table id="document_list">
+<% for document in @documents %>
+  <tr>
+    <td><%=link_to image_tag(document.public_filename(:small),
+                              :preview_src=>document.public_filename(:medium),
+                              :border=>0),
+                    document.public_filename %>
+       <td>#<%=document.id%></td>
+       <td><%=document.description%></td>
+       <td><%=document.created_at.to_s(:long)%></td>
+  </tr>
+<% end %>
+</table>
+<div id="document_preview">
+  <h2>Preview</h2>
+  <img src="" id="preview_picture">
+</div>
+<br />
+<div id="navigation">
+  <%= link_to 'New document', new_document_path %>
+  <%= link_to 'Today\'s Documents', '/documents_for_today.zip' %>
+  <%= link_to 'All Documents', '/documents.zip' %>
+</div>
+<script>
+  $$('#document_list tr td').each(function(elem){
+    Event.observe(elem, 'mouseover',function(){
+      $('preview_picture').src = $(this.up()) ̄
+                                    .select('img')[0] ̄
+                                    .readAttribute('preview_src');
+  });
+});
+</script>
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Wishlist Service</title>
+  <style type="text/css">
+    .alert { color: blue; border: 1px solid blue; padding: 5px; }
+  </style>
+</head>
+<body>
+
+<% if logged_in? -%>
+  Welcome <%= h(current_user.login) %> [<%= link_to('Logout', logout_url) %>] |
+  <%= link_to('Your Wishlist', user_wishes_url(current_user)) %>
+<% else -%>
+  <%= link_to('Log In', login_url) %> |
+  <%= link_to('Register', signup_url) %>
+<% end -%>
+ | <%= link_to('Main', '/') %>
+<hr/>
+
+<% if flash[:notice] || flash[:error] -%>
+  <div class="alert"><%= flash[:notice] || flash[:error] %></div>
+<% end -%>
+
+<%= yield  %>
+
+</body>
+</html>
+

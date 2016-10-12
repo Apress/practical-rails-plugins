@@ -1,0 +1,63 @@
+<style type="text/css">
+html, body {
+  background-color: #313131;
+  color: #cccccc;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  padding: 10px 20px;
+  background-color: #3e3e3e;
+}
+a {
+  color: #ec5210;
+}
+.bottom {
+  background-color: #3e3e3e;
+  clear: both;
+}
+.pagination {
+  background: #3e3e3e;
+  margin: 0 10px;
+  font-size: 0.8em;
+  font-family: Tahoma, Arial, Helvetica, Sans-serif;
+}
+.pagination a, .pagination span {
+  display: block;
+  float: left;
+  padding: 0.3em 0.5em;
+  margin-right: 0.1em;
+  text-decoration: none;
+  background: #3e3e3e;
+  color: #fff;
+}
+.pagination span {
+  color: #868686;
+}
+.pagination a:hover {
+  background: #ec5210;
+}
+.pagination span.current {
+  font-weight: bold;
+  background: #313131;
+}
+.pagination span.disabled {
+  color: #868686;
+}
+</style>
+
+<h1>My Reading List</h1>
+<ul>
+  <% @feed_items.each do |item| -%>
+    <li>
+      <h4><%= link_to(item.title, item.link) %></h4>
+      <div><%= truncate(item.content, 250) %></div>
+      <p>lifted from <%= link_to(item.feed, item.feed) %>, <%= time_ago_in_words(item.published_at) %> ago</p>
+    </li> 
+  <% end -%>
+</ul>
+
+<div class="bottom">
+  <%= will_paginate(@feed_items) %>
+  <br style="clear:both;" />
+</div>

@@ -1,0 +1,27 @@
+= PRACTICAL RAILS PLUGINS (Apress, 2008) ===============================
+
+This source code accompanies the book "Practical Rails Plugins" by Nick
+Plante and David Berube.
+
+This file is arranged as follows:
+
+	01		Source code for chapter 1 
+	02 		Source code for chapter 2 
+	....		etc 
+	plugins 	Reference copies of plugins
+
+You can always get an up-to-date version of this source code at
+RailsPlugins.com. Note that Rails plugins change frequently, but you
+should be able to use the reference versions from the plugins directory
+to run the examples from the book, as this directory contains the versions
+used to write this book.
+
+Additionally, note that plugin install locations may change from time to
+time, even if the interface does not. You can use the reference versions
+provided by us, or alternatively check the errata at RailsPlugins.com,
+which should contain the new URL.
+
+All source code copyright 2008 Nick Plante and David Berube except where
+noted otherwise. Plugins copyright of their respective authors; 
+see plugin packages for details. 
+

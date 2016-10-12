@@ -1,0 +1,13 @@
+<div class="sidebar">
+  <div class="title">Your Account</div>
+  <% form_tag('/session') do -%>
+    <ul>
+      <li>Login:<br/>
+      <%= text_field_tag(:login) %></li>
+      <li>Password:<br/>
+      <%= text_field_tag(:password) %></li>
+      <li><%= link_to("&raquo; New Account", "/signup") %></li>
+      <li><%= submit_tag('Do It!') %></li>
+    </ul>
+  <% end -%>
+</div>

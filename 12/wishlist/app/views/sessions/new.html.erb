@@ -1,0 +1,15 @@
+<% form_tag session_path do -%>
+  <p><label for="login">Login</label><br/>
+  <%= text_field_tag("login") %></p>
+
+  <p><label for="password">Password</label><br/>
+  <%= password_field_tag("password") %></p>
+
+  <p>Alternatively, you can use OpenID to login:</p>
+
+  <p><label for="openid_url">OpenID</label><br/>
+  <%= text_field_tag("openid_url") %></p>
+
+  <p><%= submit_tag("Log in") %></p>
+<% end -%>
+

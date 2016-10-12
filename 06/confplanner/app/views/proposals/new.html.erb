@@ -1,0 +1,12 @@
+<h1>New Proposal</h1>
+<%= error_messages_for(:conference_talk) %>
+<% form_for(:conference_talk, :url => proposals_path) do |form| -%>
+  <p>Speaker Name:<br/> <%= form.text_field(:speaker_name) %></p>
+  <p>Speaker Email:<br/> <%= form.text_field(:speaker_email) %></p>
+  <p>Talk Name:<br/> <%= form.text_field(:name) %></p>
+  <p>Talk Abstract:<br/> <%= form.text_area(:abstract, :rows => 8) %></p>
+  <p>Speaker Bio:<br/> <%= form.text_area(:speaker_bio, :rows => 5) %></p>
+  <p>Notes:<br/> <%= form.text_area(:notes, :rows => 3) %></p>
+  <%= submit_tag('Submit') %>
+<% end -%>
+

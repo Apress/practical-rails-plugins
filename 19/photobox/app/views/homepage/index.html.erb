@@ -1,0 +1,17 @@
+<%= javascript_include_tag :defaults %>
+<%= stylesheet_link_tag 'lightbox' %>
+
+<style type="text/css">
+  a img { border: 0; }
+</style>
+ 
+<h1>Photo Gallery</h1>
+
+<div class="images">
+<% @photos.each do |photo| -%>
+  <%= lightbox_image_tag make_flickr_url(photo, 's'), 
+        make_flickr_url(photo, 'm'), 
+        {}, 
+        {:title => photo.title, :rel => "lightbox[set]"} %>
+<% end -%>
+</div>

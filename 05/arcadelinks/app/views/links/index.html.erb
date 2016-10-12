@@ -1,0 +1,8 @@
+<ul>
+  <% @links.each do |link| -%>
+    <li><%= link_to(link.name, link_path(link)) %>
+      <strong>[<%= sprintf('%.2f', link.rate_average) %>]</strong>
+      (<%= truncate(link.tag_list.join(', '), 20) %>)<br/>
+      <%= render(:partial => 'links/link_with_rating', :object => link) %></li>
+  <% end -%>
+</ul>

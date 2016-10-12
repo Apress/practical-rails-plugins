@@ -1,0 +1,5 @@
+<div id="link_<%= link_with_rating.id %>_rating">
+  <%= ajaxful_rating_for(link_with_rating,
+                         rate_link_path(link_with_rating),
+                         :method => :post) %>
+</div>

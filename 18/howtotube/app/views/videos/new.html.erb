@@ -1,0 +1,12 @@
+<h1>New Video</h1>
+<% form_for(:video, :url => videos_path, :html => { :multipart => true }) do |f| -%>
+  <p>Name:<br/>
+  <%= f.text_field(:name) %></p>
+
+  <p>Description:<br/>
+  <%= f.text_area(:description) %></p>
+
+  <p><%= f.file_field(:data) %></p>
+
+  <%= submit_tag('Upload') %>
+<% end -%>

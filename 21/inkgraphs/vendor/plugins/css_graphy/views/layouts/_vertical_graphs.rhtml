@@ -1,0 +1,38 @@
+<table class="css_graphy_vertical" style="width: <%= @options[:graph_width] -%>px;">
+
+  <caption><%= @options[:caption] -%></caption>
+
+  <thead>
+    <tr><th colspan="<%= @array_of_hashes.size -%>"><%= @options[:label_title] -%></th><th>&nbsp;</th>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <% @array_of_hashes.each do |row| %>
+        <th><%= h row['label'] -%></th>
+      <% end %>
+      <th class="indicator">&nbsp;</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <tr>
+      <% @array_of_hashes.each do |row|
+        percent_full = sprintf("%i", 100 * row['value'].to_f / @max_value.to_f ) %>
+            <td class="graphy" style="height: <%= @options[:graph_height] -%>px; width: <%= sprintf('%i', 100 / @array_of_hashes.size) -%>%">
+              <span class="bar" style="height: <%= percent_full -%>%;">&nbsp;
+                <span class="value"><%= sprintf(@options[:format], row['value']) -%></span>
+              </span>
+              </td>
+      <% end %>
+      <th class="indicator">
+        <span class="max" style="margin-top: -<%= (@options[:graph_height].to_i / 2) - @options[:graph_height].to_i * 0.05 -%>px;"><%= @max_value.to_f.round -%></span>
+        <span class="mix" style="margin-top: <%= (@options[:graph_height].to_i / 2) - @options[:graph_height].to_i * 0.03  -%>px;">0</span>
+        <%= @options[:value_title] -%>
+      </th>
+    </tr>
+  </tbody>
+
+</table>
+
+

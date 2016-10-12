@@ -1,0 +1,18 @@
+<html>
+   <head>
+     <title>Index</title>
+   </head>
+   <body>
+     <p>The following files are in this zip file:</p>
+     <ul>
+<%documents.each do |doc|
+%>     <li><%=doc.zip_filename%>,
+           <%=doc.description%>,
+           <%=link_to "[download]",
+                      "documents/#{doc.zip_filename}"%>,
+              <%=doc.created_at.to_s(:long)%></li>
+<%end%>
+     </ul>
+   </body>
+</html>
+

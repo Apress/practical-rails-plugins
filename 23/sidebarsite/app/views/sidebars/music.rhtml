@@ -1,0 +1,8 @@
+<div class="sidebar">
+  <div class="title">Now Playing...</div>
+  <ul>
+    <% @artists.each do |artist| -%>
+    <li><%= link_to(artist.name, artist.url) %></li>
+    <% end -%>
+  </ul>
+</div>

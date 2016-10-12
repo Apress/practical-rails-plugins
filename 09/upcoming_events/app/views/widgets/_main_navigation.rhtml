@@ -1,0 +1,18 @@
+<%
+render_navigation :main, :generate_css => true do
+  add_item do |t|
+    t.named "Upcoming Events"
+    t.links_to :controller => "frontpage"
+  end
+
+  cms_pages = ["about", "contact", "blog"]
+  cms_pages.each do |name|
+    add_item do |t|
+      t.named name.camelize
+      t.links_to "/#{name}"
+      t.highlights_on Proc.new { !params[:page].nil? && params[:page].include?(name) }
+    end
+  end
+end
+%>
+

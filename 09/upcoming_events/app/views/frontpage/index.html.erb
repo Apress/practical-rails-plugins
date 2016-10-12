@@ -1,0 +1,34 @@
+  <style>
+    body { font-family: sans-serif; }
+    li {  list-style-type:none;  }
+    li div.calendar_line { background-color: #f4f4f5; padding:0.5em; }
+    li div.calendar_description { padding-left: 1em; }
+    li div.calendar_description p.guest { padding-left: 1em; }
+  </style>
+
+<h1>Upcoming Events</h1>
+
+<ul>
+  <%@events.each do |event| %>
+    <li>
+      <div class="calendar_line">
+          <i><%=event.occurs_at.strftime('%b %d, %Y %I:%M %p')%></i>, <%=event.title%>
+      </div>
+      <div class="calendar_description">
+        <p><strong>Featuring:</strong></p>
+        <%event.guests.each do |g|%>
+          <p class="guest">
+              <%if g.href%>
+                <%=link_to g.name, g.href%>
+              <%else%>
+                <%=g.name%>
+              <%end%> &mdash;
+              <%=g.description%>
+          </p>
+        <%end%>
+        <p>Register now - just <%=event.occurs_at.to_date.ajd - Date.today.ajd%> days to go!</p>
+      </div>
+    </li>
+  <%end%>
+</ul>
+

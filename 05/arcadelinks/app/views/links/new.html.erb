@@ -1,0 +1,16 @@
+<%= error_messages_for(:link) %>
+<% form_for(:link, :url => links_path) do |f| -%>
+  <p><label for="link_name">Name: </label><br/>
+  <%= f.text_field(:name) %></p>
+
+  <p><label for="link_url">URL: </label><br/>
+  <%= f.text_field(:url) %></p>
+
+  <p><label for="link_description">Description: </label><br/>
+  <%= f.text_area(:description, :rows => 3) %></p>
+
+  <p><label for="link_tag_list">Tags (separated by comma): </label><br/>
+  <%= f.text_field(:tag_list) %></p>
+
+  <%= submit_tag("Create") %>
+<% end -%>

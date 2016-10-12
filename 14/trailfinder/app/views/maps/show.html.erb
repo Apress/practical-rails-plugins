@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Trails in Maine</title>
+  <%= GMap.header %>
+  <%= @map.to_html %>
+</head>
+<body>
+  <%= @map.div(:width => 600, :height => 400) %>
+  <% form_tag do -%>
+    <label for="location">My Location:</label>
+     <%= text_field_tag(:location, @location) %><br/>
+
+    <label for="radius">Search Radius:</label>
+    <%= select_tag(:radius, options_for_select([10, 20, 50, 100, 200, 500, 1000], 
+      @radius.to_i)) %> Miles<br/>
+
+    <%= submit_tag('Submit') %>
+  <% end -%>
+</body>
+</html>
+

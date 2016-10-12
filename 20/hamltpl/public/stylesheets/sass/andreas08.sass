@@ -1,0 +1,178 @@
+!color1 = #467aa7
+!color2 = #ffffff
+
+*
+  :margin 0
+  :padding 0
+
+body
+  :font 76% Verdana,Tahoma,Arial,sans-serif
+  :line-height 1.4em
+  :text-align center
+  :color #303030
+  :background #e8eaec
+
+a
+  :color= !color1
+  :font-weight bold
+  :text-decoration none
+  :background-color inherit
+
+  &:hover
+    :color= !color1 - #1c201d
+    :text-decoration underline
+
+p
+  :padding 0 0 1.6em 0
+
+#container
+  :width 760px
+  :margin 20px auto
+  :padding 1px 0
+  :text-align left
+  :background= !color2
+  :color #303030
+  :border 2px solid #a0a0a0
+
+#header
+  :height 110px
+  :width 758px
+  :margin 0 1px 1px 1px
+  :background= !color1
+  :color= !color2
+
+  h1
+    :padding 35px 0 0 20px
+    :font-size 2.4em
+    :background-color inherit
+    :color= !color2
+    :letter-spacing -2px
+    :font-weight normal
+
+  h2
+    :margin 10px 0 0 40px
+    :font-size 1.4em
+    :background-color inherit
+    :color !color1 - #0f0d0b
+    :letter-spacing -1px
+    :font-weight normal
+
+#navigation
+  :height 2.2em
+  :line-height 2.2em
+  :width 758px
+  :margin 0 1px
+  :background= !color1 + #111111
+  :color= !color2
+
+  li
+    :float left
+    :list-style-type none
+    :border-right= 1px solid !color2
+    :white-space nowrap
+
+    a
+      :display block
+      :padding 0 10px
+      :font-size 0.8em
+      :font-weight normal
+      :text-transform uppercase
+      :text-decoration none
+      :background-color inherit
+      :color= !color2
+
+  .selected, a:hover
+    :background= !color1 + #3a3633
+    :color= !color2
+    :text-decoration none
+
+#content
+  :float left
+  :width 530px
+  :font-size 0.9em
+  :padding 20px 0 0 20px
+
+  h2
+    :display block
+    :margin 0 0 16px 0
+    :font-size 1.7em
+    :font-weight normal
+    :letter-spacing -1px
+    :color #505050
+    :background-color inherit
+
+  h3
+    :margin 0 0 5px 0
+    :font-size 1.4em
+    :letter-spacing -1px
+
+#subcontent
+  :float right
+  :width 170px
+  :padding 20px 20px 10px 0
+  :line-height 1.4em
+
+  h2
+    :display block
+    :margin 0 0 15px 0
+    :font-size 1.6em
+    :font-weight normal
+    :text-align left
+    :letter-spacing -1px
+    :color #505050
+    :background-color inherit
+
+  p
+    :margin 0 0 16px 0
+    :font-size 0.9em
+
+.menublock
+  :margin 0 0 20px 8px
+  :font-size 0.9em
+
+  li
+    :list-style none
+    :display block
+    :padding 2px
+    :margin-bottom 2px
+
+    a
+      :font-weight bold
+
+    ul
+      :margin 3px 0 3px 15px
+      :font-size 1em
+      :font-weight normal
+
+      li
+        :margin-bottom 0
+
+      a
+        :font-weight normal
+
+#footer
+  :clear both
+  :width 758px
+  :padding 5px 0
+  :margin 0 1px
+  :font-size 0.9em
+  :color= !color2 - #0f0f0f
+  :background= !color1
+
+  p
+    :padding 0
+    :margin 0
+    :text-align center
+
+  a
+    :color= !color2 - #0f0f0f
+    :background-color inherit
+    :font-weight bold
+
+    &:hover
+      :color= !color2
+      :background-color inherit
+
+.small
+  :font-size 0.9em
+

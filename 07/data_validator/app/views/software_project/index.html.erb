@@ -1,0 +1,45 @@
+<style>
+  form table th { text-align:right; }
+</style>
+<h1>Create New Software Project</h1>
+<%flash.each do |key, msg|%>
+  <div class="<%=key%>">
+    <%=msg%>
+  </div>
+<%end%>
+<%=error_messages_for 'software_project'%>
+<%form_for('software_project') do |f| %>
+    <table>     <p>Name:</th>
+         <td><%=f.text_field :name%></th></tr>
+    <p>Maintainer's Email:</th>
+         <td><%=f.text_field :maintainer_email%></p>
+    <p>URL:</th>
+         <td><%=f.text_field :project_url%></p>
+    <p>Commerical Support</th>
+         <td><%=f.check_box :commercial_support_available %> Available?</p>
+    <p>Commerical Sales Number</th>
+         <td><%=f.text_field :commercial_sales_number %></p>
+     <p><%=f.submit 'Create'%></p>
+<%end%>
+<%
+   ignore_columns = ['id', 'created_at', 'updated_at']
+   display_columns = SoftwareProject.columns.map(&:name) -
+                      ignore_columns
+%>
+<%if @software_projects.length>0%>
+   <h1>Software Projects List</h1>
+   <table>
+     <p><%display_columns.each do |c|%>
+          <th><%=c.humanize%></th>
+       <%end%>
+     </tr>
+   <%@software_projects.each do |s_p| %>
+     <tr>
+       <%display_columns.each do |c|%>
+          <td><%=s_p.send(c)%></td>
+       <%end%>
+     </tr>
+   <%end%>
+   </table>
+<%end%>
+

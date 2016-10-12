@@ -1,0 +1,6 @@
+<ul>
+  <% @links.each do |link| -%>
+    <li><%= link_to(link.name, link_path(link)) %>
+      (<%= truncate(link.tag_list.join(', '), 20) %>)</li>
+  <% end -%>
+</ul>

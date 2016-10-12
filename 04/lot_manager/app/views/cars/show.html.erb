@@ -1,0 +1,35 @@
+<h1><%=@car.to_s%></h1>
+<div style="width:50%; float: left;">
+  <%=render :partial=>'form', :locals=>{'@car'=>@car}%>
+</div>
+<div style="width:50%; float: left;">
+  <h2>History</h2>
+  <ul>
+  <%
+     last_version = nil
+     (@car_history).each do |version|
+        %><li><%=version.created_at.to_s(:short)%>: <%
+        if last_version.nil?%>
+            Initially Created
+   <% else %>
+      <%ignored_fields = [:updated_at, :version, :id]
+      changes = []
+         differences = version.diff(last_version)
+         differences.each do |field, d|
+            next if ignored_fields.include?(field)
+            new_value, old_value = *d
+            changes << "#{field.to_s.humanize} changed " <<
+                       "from '#{old_value}' to '#{new_value}'"
+         end
+         %><%=h changes.to_sentence%><%
+        end
+        last_version = version%>
+        </li>
+     <%
+  end%>
+</div>
+
+<p style="clear:left">
+  <%= link_to 'Back', cars_path %>
+</p>
+

@@ -1,0 +1,13 @@
+<h1>Edit my Profile</h1>
+<%if flash[:notice]%>
+   <p><%=flash[:notice]%></p>
+<%end%>
+<% form_for 'user' do |f|%>
+<p>Profile:<br> <%=f.text_area 'profile'%></p>
+<p>TIP: You can use Liquid code in your profile. You can find out
+ about Liquid's syntax at
+<a href="http://info.getcashboard.com/topics/liquid_basics">
+Cashboard's site</a>.</p>
+<%=f.submit%>
+<%end%>
+

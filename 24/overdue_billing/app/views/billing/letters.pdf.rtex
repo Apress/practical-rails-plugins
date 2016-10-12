@@ -1,0 +1,60 @@
+\documentclass[12pt]{letter}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{times}
+\pagestyle{empty}
+\address{% This is a special command provided by the letter document class,
+%          and will be used in all of the different letter environments in our
+%          document. Since we have only one letter environment,
+%          this will specify the return address for our single letter.
+%          If we had more than one letter, the address would be shared among
+%          them.
+J.X. Heating and Cooling Company \\
+89 Bog Rd\\
+Bogville\\
+Arctainville, New Glockenshire}
+\signature{ R.F. Sutton, \\
+J.X. Heating and Cooling Company } % Another special command; this is the name
+%                                    of the sender of the document, and is
+%                                    displayed right below the space where the
+%                                    sender can sign.
+\begin{document}
+<%@customers.each do |c| #Loop through all of our customers... %>
+\begin{letter}{% Start a letter environment for each; note that the argument
+<%=l c.name%>,\\% we pass to the \begin{letter} command is the address of
+%                 the recipient.
+<%=l c.street_address%>\\
+<%=l c.city%>, <%=l c.state%> <%=l c.zip%>
+}
+\opening{ Dear <%=l c.name%>: }
+I am writing to you on behalf of the J.X. Heating and Cooling Company,
+the world's oldest and most powerful Heating and Cooling company
+specializing in the heating and cooling of antique electronic mechanisms.
+% Note that a blank line creates a new paragraph automatically.
+%
+Most of our clients have electronic mechanisms in need of heating and cooling
+that are at least tens of years old, and many are several tens of years old.
+Such devices in need of said cooling/heating/etcetera functionality include such
+wonders of the ancient world as 8-track players, Betamax players, computers powered
+by Microsoft operating systems, and HD-DVD players. As you can imagine, such items,
+while antiquated and almost useless by the standards of today's more fast-paced
+world, are difficult to come by and often irreplaceable, so even the slightest
+mistake could diminish the world forever by destroying a priceless piece of history.
+Please support our efforts by promptly paying your bills.
+
+The following invoices are past due:
+\begin{itemize} % The itemize environment is similar to the <li>,
+%                  or unordered list, tag in HTML.
+<%c.past_due_invoices.each do |i|%>
+\item Invoice <%=i.id%>, in the amount of <%=i.amount%>,
+      which should have been dutifully paid on the day of <%=i.due_on%>
+% The \item command corresponds to the <li> element in HTML.
+<%end%>
+\end{itemize}
+Please pay immediately.
+\closing { I hope you pay soon,} % This is automatically followed by a space,
+%                                   typically used to sign the letter,
+%                                   then the name from the \signature command above.
+\end{letter}
+<%end%>
+\end{document}
+

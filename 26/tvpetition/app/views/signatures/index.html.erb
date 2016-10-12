@@ -1,0 +1,30 @@
+<% if flash[:notice] || flash[:error] %>
+  <div id="messages" style="margin: 10px; padding: 10px; border: 2px dashed;">
+    <%= flash[:notice] || flash[:error] %>
+  </div>
+<% end %>
+
+<h2><%= h(@petition.name) %></h2>
+<strong><%= h(@petition.description) %></strong>
+<hr/>
+<h3>Sign the Petition!</h3>
+  <%= error_messages_for(:signature) %>
+  <% form_for(:signature, :url => petition_signatures_path(@petition)) do |f| -%>
+    <label for="signature_name">Name: </label><br/>
+    <%= f.text_field(:name) %><br/>
+    <label for="signature_email">Email: </label><br/>
+    <%= f.text_field(:email) %><br/>
+    <label for="signature_comment">Comment: </label><br/>
+    <%= f.text_area(:comment, :rows => 2) %><br/>
+    <%= submit_tag('Do it!') %>
+  <% end -%>
+<hr/>
+<h3>Signatures (<%= @petition.signatures.length %>)</h3>
+<% @petition.signatures.each do |signature| -%>
+  <div class="signature" style="margin-left: 10px;">
+    <div class="scomment"><em><%= h(signature.comment) %></em></div>
+    <div class="sname"><%= h(signature.name) %></div>
+    <br/>
+  </div>
+<% end -%>
+

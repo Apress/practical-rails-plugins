@@ -1,0 +1,8 @@
+<%= ziya_chart(
+    url_for(:controller => 'reports', :action => 'authors', :format => :xml),
+    :id => 'authors_chart', :bgcolor => "white", 
+    :width => 800, :height => 600 ) %>
+<p>Select Year: <%= select_tag('year', options_for_select(@years, @year),
+      :onchange => "document.location = '/reports/authors/' +
+        this.options[this.selectedIndex].value") %></p>
+

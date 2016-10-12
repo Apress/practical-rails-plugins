@@ -1,0 +1,31 @@
+<table class="css_graphy_horizontal">
+
+  <caption><%= @options[:caption] -%></caption>
+
+  <thead>
+    <tr>
+      <th><%= @options[:label_title] -%></th>
+      <th>
+        <span class="min">0</span>
+        <span class="max"><%= @max_value.to_f.round -%></span>
+        <%= @options[:value_title] -%>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @array_of_hashes.each do |row|
+      percent_full = sprintf("%i", 100 * row['value'].to_f / @max_value.to_f ) %>
+        <tr>
+          <th><%= h row['label'] -%></th>
+          <td class="graphy" style="width: <%= @options[:graph_width] -%>px">
+            <span class="bar" style="width: <%= percent_full -%>%;">&nbsp;
+              <span class="value"><%= sprintf(@options[:format], row['value']) -%></span>
+            </span>
+            </td>
+        </tr>
+  <% end %>
+  </tbody>
+
+</table>
+

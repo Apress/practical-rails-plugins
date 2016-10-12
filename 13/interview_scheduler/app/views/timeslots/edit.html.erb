@@ -1,0 +1,25 @@
+<h1>Editing timeslot</h1>
+<%= error_messages_for :timeslot %>
+<% form_for(@timeslot) do |f| %>
+  <p>
+    Interview at:
+    <%=f.datetime_select 'interview_at'%>
+  </p>
+  <p>
+    Interviewee:
+    <%= f.select 'interviewee_id',
+                  User.find(:all).map{ |u| [u.name, u.id] },
+                  :include_blank=>true %>
+  </p>
+  <p>
+    Interviewer:
+    <%= f.select 'interviewer_id',
+                 User.find(:all).map{ |u| [u.name, u.id] },
+                 :include_blank=>true %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+<%= link_to 'Back', timeslots_path %>
+

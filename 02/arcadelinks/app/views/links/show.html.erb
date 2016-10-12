@@ -1,0 +1,9 @@
+<p><strong>Link: </strong><%= link_to(@link.url) %></p>
+<p><strong>Description:</strong> <%= h(@link.description) %></p>
+<p><strong>Tags:</strong> <%= clickable_tag_list(@link.tags) %></p>
+<p>Created <%= time_ago_in_words(@link.created_at) %> ago</p>
+
+<% form_tag(tag_link_path(@link)) do -%>
+  <%= text_field_tag(:tags) %>
+  <%= submit_tag('Add New Tags') %>
+<% end -%>

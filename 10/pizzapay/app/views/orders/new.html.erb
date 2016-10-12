@@ -1,0 +1,32 @@
+<h1>Cobol Pizza Order Form</h1>
+<%= error_messages_for(:order) %>
+<% form_for(@order) do |order_form| -%>
+  <div style="float: left; width: 50%;">
+    <h2>Your Order</h2>
+    <% fields_for('order_items[]') do |item_form| -%>
+      <table border="1" cellpadding="5" width="90%">
+        <tr><th>Pizza Type</th><th>Price</th><th>Quantity</th></tr>
+        <% @order_items.each do |item| -%>
+          <tr>
+            <td><%= h(item.pizza.name) %>
+              <%= item_form.hidden_field(:pizza_id, :index => nil, :value => item.pizza_id) %><br/>
+              <font size="-1"><%= h(item.pizza.description) %></font></td>
+            <td><%= format_money(item.pizza.price) %></td>
+            <td><%= item_form.text_field(:quantity, :index => nil, :value => item.quantity || 0, 
+                :size => 2) %></td>
+          </tr>
+        <% end -%>
+      </table>
+    <% end -%>
+    <p><%= submit_tag('Next &raquo;') %></p>
+  </div>
+  <div style="float: left; width: 50%;">
+    <h2>Delivery Information</h2>
+    <p>Delivery Name: <br/><%= order_form.text_field(:customer_name) %></p>
+    <p>Street Address: <br/><%= order_form.text_field(:customer_address) %></p>
+    <p>City: <br/><%= order_form.text_field(:customer_city) %></p>
+    <p>Email Address: <br/><%= order_form.text_field(:customer_email) %></p>
+    <p>Phone Number: <br/><%= order_form.text_field(:customer_phone) %></p>
+  </div>
+<% end -%>
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Validation Example</title>
+  <%= stylesheet_link_tag('application') %>
+</head>
+<body>
+  <div class="container">
+    <div class="header"><h1>Validation Example</h1></div>
+    <div class="leftcol">
+      <ul>
+        <li><a href="http://www.w3.org">World Wide Web Consortium</a></li>
+        <li><a href="http://validator.w3.org">Markup Validator</a></li>
+        <li><a href="http://jigsaw.w3.org/css-validator">CSS Validator</a></li>
+        <li><a href="http://www.realityforge.org/svn/code/assert-valid-asset/trunk/README">Assert Valid Asset</a></li>
+      </ul>
+    </div>
+    <div class="rightcol">
+      <%= yield %>
+    </div>
+    <div class="footer">&copy; <%= Time.now.strftime("%Y") %> Your Name</div>
+  </div>
+</body>
+</html>
+

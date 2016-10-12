@@ -1,0 +1,20 @@
+<style type="text/css">
+  .search_result { margin-bottom: 10px; width: 400px; }
+  .movie_name { font-size: 120%; font-weight: bold; }
+  .description { font-size: 90%; }
+</style>
+
+<%= render(:partial => 'form') %>
+<% if @results.length < 1 -%>
+  <h3>No matches found</h3>
+<% else -%>
+  <h3>Your search took <%= '%02.04f' % @time_for_search %> seconds and returned the following results:</h3>
+  <ul>
+  <% @results.each do |result| -%>
+    <li class="search_result">
+      <div class="movie_name"><%= h(result.movie.name) %> (<%= h(result.movie.year) %>)</div>
+      <div class="description"><%= h(result.description) %></div>
+    </li>
+  <% end -%>
+  </ul>
+<% end -%>

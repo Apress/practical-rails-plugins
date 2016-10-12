@@ -1,0 +1,15 @@
+Dear <%= @conference_talk.speaker_name %>,
+
+This message refers to your proposed talk for MCETC, "<%= @conference_talk.name %>".
+Your talk status is: <%= @conference_talk.state.upcase %>.
+
+<% if @conference_talk.state == "scheduled" -%>
+  Room: <%= @conference_talk.room %>
+  Time: <%= @conference_talk.scheduled_at %>
+<% end -%>
+
+Let us know if you have any questions or concerns.
+
+Thanks,
+
+MCETC Organizers.

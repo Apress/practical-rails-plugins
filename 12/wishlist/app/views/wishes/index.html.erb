@@ -1,0 +1,14 @@
+<h1>Wishlist for <%= @user.login %></h1>
+<ol>
+  <% @wishes.each do |wish| -%>
+    <li>
+      <p><%= link_to(wish.title, wish.url) %></p>
+      <p><%= h(wish.notes) %></p>
+      <% if is_current_user?(wish.user) -%>
+        <p><%= link_to('Delete', user_wish_url(@user, wish), :method => :delete, :confirm => 'Are you sure?') %></p>
+      <% end -%>
+    </li>
+  <% end -%>
+  <% if is_current_user?(@user) %><%= link_to('New Wish', new_user_wish_url(@user)) %><% end %>
+</ol>
+

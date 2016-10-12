@@ -1,0 +1,7 @@
+<h1>Conference Proposals</h1>
+<ul>
+  <% @conference_talks.each do |proposal| -%>
+  <li><%= link_to("[#{proposal.state.upcase}] #{proposal.name}", edit_proposal_path(proposal)) %></li>
+  <% end -%>
+</ul>
+

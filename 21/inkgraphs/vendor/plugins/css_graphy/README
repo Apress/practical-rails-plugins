@@ -1,0 +1,20 @@
+CSSGraphy
+---------
+
+CSS Graphy is a simple-to-use bar-graphing view helper plugin that creates
+horizontal and vertical graphs only using CSS and markup.  Some features:
+
+  * Unlimited number of graphs per view
+  * Auto-scaling with ulimited number range
+  * Themes support
+  * All markup is in partials you can tweak
+
+INSTRUCTIONS
+
+  http://oss.vermonster.com/css_graphy
+
+CREDITS
+
+  Written by Brian Kaney <http://vermonster.com>
+
+

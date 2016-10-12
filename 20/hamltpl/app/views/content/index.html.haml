@@ -1,0 +1,7 @@
+.article
+  %p.small
+    = "Written by #{link_to(@author, @author_website)}"
+    = "#{time_ago_in_words(@published_at)} ago"
+
+  - @content.each_with_index do |paragraph, index|
+    %p{:class => "copy", :id => "paragraph-#{index}"}= paragraph

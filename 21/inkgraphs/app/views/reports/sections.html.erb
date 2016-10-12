@@ -1,0 +1,6 @@
+<%= graphy_stylesheet %>
+<%= vertical_graph(@data, :caption => "Articles in Sections, #{@year}") %>
+<p>Select Year: <%= select_tag('year', options_for_select(@years, @year),
+      :onchange => "document.location = '/reports/sections/' +
+        this.options[this.selectedIndex].value") %></p>
+

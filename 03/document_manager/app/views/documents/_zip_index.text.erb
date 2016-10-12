@@ -1,0 +1,6 @@
+The following files are in this zip file:
+<%documents.each do |doc|
+ %> <%=doc.zip_filename%>,   <%=doc.description%>, <%=doc.created_at.to_s(:long)%>
+  <%
+end%>
+

@@ -1,0 +1,48 @@
+.container {
+  width: 90%;
+  border: 2px solid #666;
+  margin: 10px auto;
+}
+.header {
+  padding: 5px;
+  border-bottom: 2px solid #666;
+}
+.footer {
+  border-top: 2px solid #666;
+  font-size: small;
+  padding: 5px;
+  margin: 0;
+  clear: both;
+  text-align: center;
+}
+.leftcol {
+  float: left;
+  width: 240px;
+  margin: 0;
+  padding: 10px;
+}
+.leftcol ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+}
+.leftcol ul li {
+  margin-top: 3px;
+}
+.rightcol {
+  margin-left: 250px;
+  padding: 0 20px;
+  border-left: 2px solid #666;
+}
+a {
+  text-decoration: underline;
+  color: blue;
+}
+a:hover {
+  color: purple;
+}
+h1 {
+  padding: 0;
+  margin: 0;
+}
+

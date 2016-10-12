@@ -1,0 +1,8 @@
+<h1>New Wish</h1>
+<% form_for(@wish, :url => user_wishes_url(@user)) do |form| -%>
+  <p>Title:<br/><%= form.text_field(:title) %></p>
+  <p>URL:<br/><%= form.text_field(:url) %></p>
+  <p>Notes:<br/><%= form.text_field(:notes) %></p>
+  <%= submit_tag('Save') %>
+<% end -%>
+

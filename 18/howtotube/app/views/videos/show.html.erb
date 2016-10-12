@@ -1,0 +1,19 @@
+<h1><%= h(@video.name) %></h1>
+<p><%= h(@video.description) %></p>
+
+<div id="player">
+  <% if @video.converted? -%>
+    <%= flv_player(:file => @video.public_filename) %>
+  <% else -%>
+    <script language="javascript">var check_status = true;</script>
+    <%= periodically_call_remote(:url => video_path(@video), :method => :get,
+          :update => { :success => "player" }, :condition => "check_status" )
+    %>
+    <div style="width: 260px; border: 1px solid blue; padding: 20px; background: #eee;">
+      <p align="center"><%= image_tag('progress.gif') %></p>
+      <p align="center">Please wait. Converting video.</p>
+    </div>
+  <% end -%>
+</div>
+
+<p><%= link_to("Return to Index", videos_path) %></p>

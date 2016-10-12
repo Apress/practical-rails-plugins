@@ -1,0 +1,70 @@
+!!! Transitional
+%html{html_attrs('en-en')}
+  %head
+    %title= @title
+    %meta{"http-equiv" => "content-type", :content => "text/html; charset=iso-8859-1"}
+    %meta{:name => "description", :content => "Your website description goes here"}
+    %meta{:name => "keywords", :content => "your,keywords,goes,here"}
+    = stylesheet_link_tag('andreas08')
+  %body
+    #container
+      #header
+        %h1= @site_title || "Your New Website"
+        %h2= @site_subtitle || "Tasty Morsels of Software Goodness"
+
+      #navigation
+        %ul
+          %li.selected
+            %a{:href => "#"}First page
+          %li
+            %a{:href => "#"}Second
+          %li
+            %a{:href => "#"}Third
+          %li
+            %a{:href => "#"}Fourth
+          %li
+            %a{:href => "#"}Fifth
+          %li
+            %a{:href => "#"}And the last one
+
+      #content
+        %h2= @title
+        = yield
+
+      #subcontent
+        %h2 Nested Menu
+        %ul.menublock
+          %li
+            %a{:href => "#"} Menu option 1
+          %li
+            %a{:href => "#"} Menu option 2
+            %ul
+              %li
+                %a{:href => "#"} Submenu 1
+              %li
+                %a{:href => "#"} Submenu 2
+          %li
+            %a{:href => "#"} Menu option 3
+          %li
+            %a{:href => "#"} Menu option 4
+
+        %h2 Favorite Links
+        %ul.menublock
+          %li
+            %a{:href => "http://andreasviklund.com/templates"} Free web templates
+          %li
+            %a{:href => "http://openwebdesign.org"} Open Web Design
+          %li
+            %a{:href => "http://oswd.org"} OSWD.org
+          %li
+            %a{:href => "http://rubyonrails.org"} Ruby on Rails
+          %li
+            %a{:href => "http://haml.hamptoncatlin.com"} Haml and Sass
+
+      #footer
+        %p
+          &copy; 2005-2006
+          %a{:href => "#"}= @author
+          | Design by
+          %a{:href => "http://andreasviklund.com"} Andreas Viklund
+
